@@ -1,0 +1,24 @@
+body {
+	margin: 0 0px 80px 20px;
+	padding: 0;
+	font: 12px "Trebuchet MS", "Lucida Sans unicode", Arial, Helvetica, sans-serif, courier;
+	line-height: 1.5;
+	color: #1b2431;
+	background: #fff url(http://imgur.com/43HtJ.png) no-repeat fixed right top;
+}
+
+#nsfw {
+	width: 250px;
+	height: 100px;
+	position: absolute;
+	top: 400px;
+	right: 150px;
+	background-color: #da4a74;
+	text-align: center;
+}
+
+#nsfw h1 {
+	margin: 0;
+	color: #FFF;
+	font-size: 80px;
+}
