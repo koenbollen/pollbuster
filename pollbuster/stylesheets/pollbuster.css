@@ -1,19 +1,29 @@
 body {
 	margin: 0 0px 80px 20px;
-	padding: 0;
+	xpadding: 0 600px 0 0;
 	font: 12px "Trebuchet MS", "Lucida Sans unicode", Arial, Helvetica, sans-serif, courier;
 	line-height: 1.5;
 	color: #1b2431;
 	background: #fff url(http://imgur.com/43HtJ.png) no-repeat fixed right top;
 }
 
+#content {
+	border: 1px solid black;
+	background: white;
+	width: 700px;
+	padding: 10px;
+	opacity: 0.75;
+	z-index: 1;
+}
+
 #nsfw {
 	width: 250px;
 	height: 100px;
-	position: absolute;
+	position: fixed;
 	top: 400px;
 	right: 150px;
-	background-color: #da4a74;
+	background-color: #da3a74;
+	cursor: pointer;
 	text-align: center;
 }
 
