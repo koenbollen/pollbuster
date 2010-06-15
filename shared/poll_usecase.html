@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>poll usecase</title>
+	</head>
+	<body>
+
+		<!-- normal poll //-->
+		<form name="test1" action="/localfile.php">
+			<input id="os_linux" type="radio" name="os" value="linux" /><label for="os_linux">Linux</label><br />
+			<input id="os_osx" type="radio" name="os" value="osx" /><label for="os_osx">OSX</label><br />
+			<input id="os_windows" type="radio" name="os" value="windows" /><label for="os_windows">Windows</label><br />
+			<input id="os_other" type="radio" name="os" value="other" /><label for="os_other">Other...</label><br />
+			<input type="submit" name="submit" value="Vote" />
+		</form>
+
+		<hr />
+
+		<!-- advanced poll //-->
+		<form name="test2" action="http://koen.it/req" method="post">
+			<input type="hidden" name="vote" value="1" />
+			<input type="hidden" name="key" value="fJd4E4a" />
+			<input type="hidden" name="time" value="1276205876" />
+
+			<div class="poll">What is your favorite high-level language:</div>
+			<div class="choices">
+				<div class="choice">
+					<input id="choice1" type="radio" name="choice" value="1" />
+					<label for="choice1">Python</label>
+				</div>
+				<div class="choice">
+					<input id="choice2" type="radio" name="choice" value="2" />
+					<label for="choice2">Ruby</label>
+				</div>
+				<div class="choice">
+					<input id="choice3" type="radio" name="choice" value="3" />
+					<label for="choice3"><strike>Perl</strike></label>
+				</div>
+			</div>
+
+			<input type="submit" name="execute" value="Vote" />
+		</form>
+
+		<hr />
+
+		<!-- lazy poll //-->
+		<form name="test3"><!-- no action //-->
+			Your favorite colour:<br />
+			<input type="radio" name="color" value="red" /> Red<br />
+			<input type="radio" name="color" value="green" /> Green<br />
+			<input type="radio" name="color" value="blue" /> Blue<br />
+			<input type="submit" value="Vote!" /><!-- no submit name //-->
+		</form>
+
+		<hr />
+
+		<!-- extra field poll //-->
+		<form name="test4" action="/localfile.php" method="get">
+			Hottest chick?<br />
+			<input type="radio" name="chick" value="glau" /> Summer Glau<br />
+			<input type="radio" name="chick" value="ueto" /> Ueto Aya<br />
+			<input type="radio" name="chick" value="boer" /> Nicole de Boer<br />
+			<br />
+			Your mail: <input type="text" name="mail" value="" />
+			<input type="submit" name="go" value="Submit my Vote" />
+		</form>
+
+		<hr />
+
+		<!-- multiple radio names //-->
+		<form name="test5" method="post" action=""><!-- empty action //-->
+			Best prime?<br />
+			<input type="radio" name="poll" value="3" /> 3<br />
+			<input type="radio" name="poll" value="7" /> 7<br />
+			<input type="radio" name="poll" value="13" /> 13<br />
+			<br />
+			You are?
+			<input type="radio" name="gender" value="m" /> Male
+			<input type="radio" name="gender" value="f" /> Female<br />
+			<input type="submit" name="submit" value="Vote" />
+		</form>
+
+	</body>
+</html>
+
+
