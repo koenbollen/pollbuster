@@ -2,7 +2,6 @@
 # Koen Bollen <meneer koenbollen nl>
 # 2010 GPL
 
-
 import sys
 from collections import namedtuple
 import random

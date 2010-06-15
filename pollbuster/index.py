@@ -1,11 +1,17 @@
-def main():
-    try:
-        fp = open( "pollbuster.tpl" )
-        tpl = fp.read()
-    except (IOError, OSError):
-        tpl = "{content}"
+# Koen Bollen <meneer koenbollen nl>
+# 2010 GPL
 
-    content = """<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et dapibus diam. Aenean ornare adipiscing malesuada. Morbi laoreet ante non elit gravida fermentum at accumsan ligula. Maecenas at tristique tortor. Cras id luctus purus. In hac habitasse platea dictumst. Morbi vel sapien erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas bibendum velit eu neque semper interdum. In sed euismod est. Curabitur eget dolor nec elit commodo congue. Nunc sit amet quam mi. Curabitur ut orci sed neque ultricies feugiat ac at nisi. Aliquam erat volutpat. Sed lorem purus, feugiat vitae condimentum quis, egestas eget ante. Nulla facilisi. Ut mattis vehicula diam eget placerat. Integer in neque sed lectus dapibus varius at vitae dui. Praesent ligula neque, gravida vel egestas eget, bibendum vitae nisi. Morbi massa mi, vulputate dignissim interdum nec, feugiat et urna.</p>
+from google.appengine.ext import webapp
+
+class IndexPage( webapp.RequestHandler ):
+    def get(self ):
+        try:
+            fp = open( "pollbuster.tpl" )
+            tpl = fp.read()
+        except (IOError, OSError):
+            tpl = "{content}"
+
+        content = """<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et dapibus diam. Aenean ornare adipiscing malesuada. Morbi laoreet ante non elit gravida fermentum at accumsan ligula. Maecenas at tristique tortor. Cras id luctus purus. In hac habitasse platea dictumst. Morbi vel sapien erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Maecenas bibendum velit eu neque semper interdum. In sed euismod est. Curabitur eget dolor nec elit commodo congue. Nunc sit amet quam mi. Curabitur ut orci sed neque ultricies feugiat ac at nisi. Aliquam erat volutpat. Sed lorem purus, feugiat vitae condimentum quis, egestas eget ante. Nulla facilisi. Ut mattis vehicula diam eget placerat. Integer in neque sed lectus dapibus varius at vitae dui. Praesent ligula neque, gravida vel egestas eget, bibendum vitae nisi. Morbi massa mi, vulputate dignissim interdum nec, feugiat et urna.</p>
 
 <p>Ut velit nisl, congue aliquet lobortis in, viverra non erat. Sed ullamcorper imperdiet erat, non varius neque porta ac. Vivamus eleifend justo nec ipsum pharetra eget malesuada augue vestibulum. Integer mi felis, ullamcorper eu pretium eu, ullamcorper ultricies neque. Nulla luctus posuere sapien ac blandit. Sed tempus, leo at varius venenatis, est dui condimentum dolor, euismod gravida magna metus at nunc. Cras ac lectus a ante tincidunt faucibus. Proin vulputate blandit ipsum at tincidunt. Ut vitae lectus lectus, sed laoreet enim. Donec ullamcorper sagittis lectus, et sollicitudin velit convallis a. Proin leo ante, placerat sed volutpat vitae, condimentum venenatis mauris. Proin justo lectus, tincidunt vel auctor et, vulputate vel dui. In in commodo dui. Aliquam erat volutpat.</p>
 
@@ -25,11 +31,9 @@ def main():
 
 <p>Etiam diam justo, cursus vel aliquam at, fringilla ut tellus. Nunc sodales rhoncus pulvinar. Sed fermentum euismod neque, ut fringilla turpis ullamcorper a. Praesent quis risus nibh, sed pellentesque nisi. Nam porttitor, tortor id faucibus luctus, mauris velit ultricies leo, vitae aliquam magna nulla nec nibh. Sed sagittis sem ac elit tincidunt commodo. Cras placerat, sem vitae luctus accumsan, augue nunc ornare purus, non cursus neque odio at diam. Suspendisse tristique, lectus vel malesuada iaculis, velit orci porttitor risus, et sollicitudin mauris sem eu ipsum. Mauris volutpat justo in arcu aliquam laoreet. Nullam blandit porttitor diam et vehicula. Ut suscipit ultrices justo, non ultrices sem blandit eu. Quisque at arcu elit, porttitor tristique eros. In hac habitasse platea dictumst. In tincidunt, magna nec dapibus ullamcorper, dolor magna pharetra eros, at aliquam est turpis eget augue. Suspendisse velit mi, mollis vel molestie non, ullamcorper auctor nulla. Etiam eget mollis ipsum.</p>"""
 
-    output = tpl.replace( "{content}", content.encode( "utf-8" ) )
-    print "Content-Type: text/html"
-    print "Content-Length:", len(output)
-    print
-    print output
+        output = tpl.replace( "{content}", content.encode( "utf-8" ) )
+        self.response.headers['Content-Type'] = 'text/html'
+        self.response.out.write( output )
 
-if __name__ == "__main__":
-    main()
+# vim: expandtab shiftwidth=4 softtabstop=4 textwidth=79:
+

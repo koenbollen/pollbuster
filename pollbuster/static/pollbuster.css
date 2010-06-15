@@ -32,3 +32,9 @@ body {
 	color: #FFF;
 	font-size: 80px;
 }
+
+.error
+{
+    color: red;
+}
+

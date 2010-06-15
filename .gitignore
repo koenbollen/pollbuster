@@ -1,1 +1,2 @@
-shared/names.txt
+pollbuster/names.txt
+*.pyc
