@@ -1,0 +1,15 @@
+application: pollbuster305
+version: 1
+runtime: python
+api_version: 1
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+
+- url: /favicon.ico
+  static_files: stylesheets/favicon.ico
+  upload: stylesheets/favicon.ico
+
+- url: /.*
+  script: index.py
