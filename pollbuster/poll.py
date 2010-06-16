@@ -2,8 +2,6 @@
 # Koen Bollen <meneer koenbollen nl>
 # 2010 GPL
 
-import sys
-from collections import namedtuple
 import random
 
 class PollError( Exception ):
@@ -11,13 +9,6 @@ class PollError( Exception ):
 
 class InvalidPollError( PollError ):
     pass
-
-Poll = namedtuple( 
-        "Poll",
-        "id name method action groupname choices hiddens specials"
-    )
-Hidden = namedtuple( "Hidden", "name value" )
-Input = namedtuple( "Input", "type name value special" )
 
 class Extractor( object ):
 
@@ -81,7 +72,7 @@ class Extractor( object ):
 
         for hid in form.findAll( "input", type="hidden" ):
             try:
-                hiddens.append( Hidden(hid['name'], hid.get("value")) )
+                hiddens.append( (hid['name'], hid.get("value")) )
             except KeyError:
                 pass
 
@@ -100,7 +91,7 @@ class Extractor( object ):
                             break
                     if special is not None:
                         break
-                specials.append( Input(
+                specials.append( (
                         type,
                         name,
                         value,
@@ -112,13 +103,13 @@ class Extractor( object ):
         submit = form.find( "input", type="submit" )
         if submit:
             try:
-                specials.append( Input( "submit", submit['name'],
+                specials.append( ( "submit", submit['name'],
                     submit.get("value"), None ) )
             except KeyError:
                 pass
 
-        return Poll(
-                id, name, method, action, 
+        return (
+                id, name, method, action,
                 groupname, choices,
                 hiddens, specials
             )
