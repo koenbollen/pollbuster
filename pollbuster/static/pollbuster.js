@@ -35,9 +35,9 @@ $(document).ready(function() {
 			}
 
 			html = $(json.result.html);
-			$("tbody", html).hide();
-			$("caption", html).click(function(){
-				$("tbody", html).toggle();
+			$(".pollinfo .ui-widget-content", html).hide();
+			$(".pollinfo .ui-widget-header", html).click(function(){
+				$(".pollinfo .ui-widget-content", html).toggle("blind");
 			});
 			$("a.submit", html).click(function(){
 				val = $("input:checked", html).val();
@@ -71,6 +71,6 @@ $(document).ready(function() {
 			result.show();
 
 		}, "json" );
-	});
+	}).button();
 
 });

@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Pollbuster - 305 Use Proxy</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="static/custom-theme/jquery-ui-1.8.2.custom.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="static/pollbuster.css" />
 		<script language="JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 		<script language="JavaScript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.2/jquery-ui.min.js"></script>
@@ -17,7 +18,7 @@
 		<div id="selector">
 			<form name="selector" action="#">
 				<input type="text" name="url" value="" />
-				[<a href="#">fetch poll</a>]
+				<a href="#">fetch poll</a>
 			</form>
 		</div>
 

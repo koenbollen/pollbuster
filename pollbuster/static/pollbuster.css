@@ -41,7 +41,7 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0 10px;
+    padding: 10px 0;
     text-align: center;
     font-size: 12pt;
 }
@@ -49,4 +49,23 @@ body {
 #result
 {
     margin-bottom: 20px;
+}
+
+
+.pollinfo
+{
+    width: 400px;
+}
+.pollinfo-head
+{
+    cursor:pointer;
+    padding: 2px 3px;
+}
+
+
+.choices
+{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 10px 5px 20px 5px;
 }

@@ -96,18 +96,20 @@ class ExtactAjax( webapp.RequestHandler ):
 
         body = """
 <div class="poll">
-    <strong>Poll found!</strong>
-    <table class="pollinfo">
-        <caption>Poll Information</caption>
-        <tbody>
-            <tr><td>Form ID:</td><td>%s</td></tr>
-            <tr><td>Form Name:</td><td>%s</td></tr>
-            <tr><td>Action:</td><td>%s</td></tr>
-            <tr><td>Method:</td><td>%s</td></tr>
-            <tr><td>Number of choices:</td><td>%d</td></tr>
-        </tbody>
-    </table>
-    <p>Please select the poll option to vote on:</p>
+    <h3 class="found">Poll found!</h3>
+    <div class="pollinfo ui-widget">
+        <div class="pollinfo-head ui-widget-header">Poll Information</div>
+        <div class="ui-widget-content">
+            <table>
+                <tr><td>Form ID:</td><td>%s</td></tr>
+                <tr><td>Form Name:</td><td>%s</td></tr>
+                <tr><td>Action:</td><td>%s</td></tr>
+                <tr><td>Method:</td><td>%s</td></tr>
+                <tr><td>Number of choices:</td><td>%d</td></tr>
+            </table>
+        </div>
+    </div>
+    <p class="please">Please select the poll option to vote on:</p>
     <div class="choices">{radios}</div>
     <a href="#" class="submit">vote!</a>
 </div>
