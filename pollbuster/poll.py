@@ -68,7 +68,7 @@ class Extractor( object ):
             if text is None:
                 if radio.next.string is not None and radio.next.string.strip():
                     text = radio.next.string.strip()
-            choices.append( (value, text) )
+            choices.append( (value.strip(), text.strip()) )
 
         for hid in form.findAll( "input", type="hidden" ):
             try:
@@ -104,7 +104,7 @@ class Extractor( object ):
         if submit:
             try:
                 specials.append( ( "submit", submit['name'],
-                    submit.get("value"), None ) )
+                    submit.get("value"), True ) )
             except KeyError:
                 pass
 
@@ -115,6 +115,7 @@ class Extractor( object ):
             )
 
 class Special( object ):
+    title = "None"
     names = None
     valuetype = "constant"
 
@@ -123,6 +124,7 @@ class Special( object ):
 
 class NameSpecial( Special ):
 
+    title = "Name"
     names = ("name", "n")
     valuetype = "cyclic"
 
@@ -149,6 +151,7 @@ class NameSpecial( Special ):
 
 class MailSpecial( Special ):
 
+    title = "Mail"
     names = ( "mail", "addr" )
     valuetype = "random"
 

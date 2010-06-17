@@ -1,6 +1,5 @@
 body {
 	margin: 0 0px 80px 20px;
-	xpadding: 0 600px 0 0;
 	font: 12px "Trebuchet MS", "Lucida Sans unicode", Arial, Helvetica, sans-serif, courier;
 	line-height: 1.5;
 	color: #1b2431;
@@ -33,8 +32,21 @@ body {
 	font-size: 80px;
 }
 
-.error
+#error
 {
-    color: red;
+    color: #a00;
+    background: #Fee;
+    border-bottom: 1px solid #a00;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 10px;
+    text-align: center;
+    font-size: 12pt;
 }
 
+#result
+{
+    margin-bottom: 20px;
+}
