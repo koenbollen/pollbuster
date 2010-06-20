@@ -13,7 +13,7 @@
 		<div id="error" style="display: none"></div>
 		<div id="nsfw"><h1>NSFW</h1></div>
 
-		<h1>Pollbuster</h1>
+		<h1>Who you gonna call? Pollbusters!</h1>
 
 		<div id="selector">
 			<form name="selector" action="#">
@@ -24,7 +24,9 @@
 
 		<div id="content">
             <div id="result" style="display:none"></div>
-            <div id="explain">[TODO: Explain Pollbuster here...]</div>
+            <div id="explain"><p>Pollbuster is a automated distributed pollvoting system. We use 1000+ proxyservers to influence any online poll of your chosing.
+	    Fill in the URL of the poll you want to vote on. Press 'fetch poll' and select the result you want to vote on. To execute press vote! Happy pollbusting!</p>
+	    </div>
 		</div>
 
 	</body>
