@@ -3,6 +3,7 @@
 
 import sys
 import os
+import logging
 
 try:
     import poll
@@ -19,7 +20,7 @@ def voter( queue ):
             try:
                 res = vote( job )
             except Exception, e:
-                print >>sys.stderr, e # nice log plix
+                logging.exception( "failed to vote" )
             finally:
                 queue.task_done()
     except KeyboardInterrupt:

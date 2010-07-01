@@ -3,6 +3,7 @@
 
 import Queue as queue
 import multiprocessing
+import logging
 import worker
 from time import time
 
@@ -39,6 +40,8 @@ class Scheduler():
             self.jobs[jid]['stime'] = time()
             info = self.jobs[jid]
 
+            logging.info( "job #%d started, voting...", jid )
+
             for i in xrange( info['count'] ):
                 innerinfo = info.copy()
                 innerinfo['i'] = i
@@ -49,10 +52,13 @@ class Scheduler():
             self.jobs[jid]['etime'] = time()
             self.queue.task_done()
 
+            logging.info( "job #%d finished", jid )
+
 
     def job(self, job ):
 
         if self.queue.full():
+            logging.notice( "didn't queue job, queue is full" )
             return False
 
         jid = self.nextjid
@@ -65,6 +71,8 @@ class Scheduler():
 
         self.jobs[jid] = info
         self.queue.put( jid, False )
+
+        logging.info( "job #%d queued", jid )
 
         self.nextjid += 1
         return jid

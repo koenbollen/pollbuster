@@ -3,6 +3,7 @@
 # 2010 GPL
 #
 
+import logging
 import scheduler
 import rpc
 
@@ -17,12 +18,13 @@ class DistrubutedVoter( object ):
 
     def start(self ):
         self.rpc_server = rpc.start(self.address, self.scheduler, self.debug)
+        logging.notice( "distrubuted scheduler started" )
         self.scheduler.start()
 
     def shutdown(self ):
-        print "shutting down..."
+        logging.notice( "shutting down..." )
         self.rpc_server[0].shutdown()
-        print "shutdown"
+        logging.notice( "shutdown" )
 
 
 def main(): # testing main...

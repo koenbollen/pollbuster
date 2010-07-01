@@ -4,11 +4,11 @@
 
 from DocXMLRPCServer import DocXMLRPCServer
 from SimpleXMLRPCServer import SimpleXMLRPCServer
+import logging
 import threading
 
 __all__ = ( "RPCHandler", "start" )
 
-count = 0
 
 class RPCHandler( object ):
 
@@ -61,10 +61,10 @@ def start( address, scheduler, debug=False ):
     handler = RPCHandler( scheduler )
     s.register_multicall_functions()
     s.register_instance( handler )
-    s.thread = threading.Thread( name="RPC-%d"%count, target=s.serve_forever )
-    count+=1
+    s.thread = threading.Thread( name="RPC", target=s.serve_forever )
     s.thread.daemon = True
     s.thread.start()
+    logging.info( "rpc interface started" )
     return s, s.thread, handler
 
 # vim: expandtab shiftwidth=4 softtabstop=4 textwidth=79:
